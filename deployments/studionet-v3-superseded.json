@@ -1,0 +1,9 @@
+{
+  "network": "GenLayer StudioNet",
+  "chainId": 61999,
+  "contract": "0xe8Ed3F6D29eF255855d17b9b647F318C07a8eE3b",
+  "schema": "semantic-specimen-code-registry-v3",
+  "version": 3,
+  "status": "superseded",
+  "reason": "Retirement did not decrement the global active-code counter; V4 fixes and tests the invariant."
+}

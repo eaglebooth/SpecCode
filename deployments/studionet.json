@@ -1,0 +1,12 @@
+{
+  "network": "GenLayer StudioNet",
+  "chainId": 61999,
+  "contract": "0xA0839F5509930795B08fB639f2a9436e94DD9F0A",
+  "schema": "semantic-specimen-code-registry-v4",
+  "version": 4,
+  "verifiedReadback": {
+    "name": "SpecCode",
+    "schema": "semantic-specimen-code-registry-v4",
+    "version": 4
+  }
+}

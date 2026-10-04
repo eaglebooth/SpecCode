@@ -1,5 +1,7 @@
 __pycache__/
 .pytest_cache/
 artifacts/
-deployments/
+deployments/*
+!deployments/studionet.json
+!deployments/studionet-v3-superseded.json
 *.pyc
