@@ -1,0 +1,75 @@
+{
+  "contract": "0x13123DfED868dEC6C4FCfeef5cccB0A4bDB7dc18",
+  "network": "GenLayer StudioNet 61999",
+  "namespace": "sample-intake",
+  "run": "1083762816",
+  "actors": {
+    "curator": "0xeb57bc7125fa60d7482CE12058397369AB3581f8",
+    "recorder": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f"
+  },
+  "ids": {
+    "baseProposal": "base-1083762816",
+    "duplicateProposal": "duplicate-1083762816",
+    "overlapProposal": "overlap-1083762816",
+    "conflictProposal": "conflict-1083762816",
+    "staleProposal": "stale-1083762816",
+    "secondDistinctProposal": "second-1083762816",
+    "record": "record-1083762816",
+    "replayRecord": "replay-1083762816",
+    "specimen": "specimen-1083762816"
+  },
+  "codes": {
+    "base": "CLOT_1083762816",
+    "duplicate": "FIBRIN_1083762816",
+    "overlap": "BLOOD_DAMAGE_1083762816",
+    "conflict": "CLOT_ACCEPT_1083762816",
+    "stale": "LEAK_1083762816",
+    "second": "ID_MISMATCH_1083762816"
+  },
+  "transactions": [
+    {
+      "label": "assess base as distinct",
+      "method": "assess_proposal",
+      "expected": "SUCCESS",
+      "hash": "0x7c221186fbe9cc4a5f2bcfc2c61d3de840cc938cae28468c3ccf89c89bdcda9a",
+      "status": "UNDETERMINED",
+      "execution": "SUCCESS"
+    }
+  ],
+  "assertions": [
+    {
+      "label": "deployed SpecCode identity",
+      "pass": true,
+      "details": {
+        "name": "SpecCode",
+        "schema": "semantic-specimen-code-registry-v1",
+        "version": 1
+      }
+    },
+    {
+      "label": "namespace authority binding",
+      "pass": true,
+      "details": {
+        "active_count": 0,
+        "authority": "0x5591ad55a861925bf04880104aa70076bae87c91",
+        "code_slot_count": 0,
+        "enabled": true,
+        "exists": true,
+        "namespace_id": "sample-intake",
+        "proposal_count": 1,
+        "record_count": 0,
+        "revision": 1
+      }
+    },
+    {
+      "label": "assess base as distinct finalized with SUCCESS",
+      "pass": false,
+      "details": {
+        "hash": "0x7c221186fbe9cc4a5f2bcfc2c61d3de840cc938cae28468c3ccf89c89bdcda9a",
+        "status": "UNDETERMINED",
+        "execution": "SUCCESS"
+      }
+    }
+  ],
+  "final": {}
+}

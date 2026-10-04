@@ -1,0 +1,1149 @@
+{
+  "contract": "0xe8Ed3F6D29eF255855d17b9b647F318C07a8eE3b",
+  "network": "GenLayer StudioNet 61999",
+  "namespace": "sample-intake-1084681099",
+  "run": "1084681099",
+  "actors": {
+    "curator": "0xeb57bc7125fa60d7482CE12058397369AB3581f8",
+    "recorder": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f"
+  },
+  "ids": {
+    "baseProposal": "base-1084681099",
+    "duplicateProposal": "duplicate-1084681099",
+    "overlapProposal": "overlap-1084681099",
+    "conflictProposal": "conflict-1084681099",
+    "staleProposal": "stale-1084681099",
+    "secondDistinctProposal": "second-1084681099",
+    "record": "record-1084681099",
+    "replayRecord": "replay-1084681099",
+    "specimen": "specimen-1084681099"
+  },
+  "codes": {
+    "base": "CLOT_1084681099",
+    "duplicate": "FIBRIN_1084681099",
+    "overlap": "BLOOD_DAMAGE_1084681099",
+    "conflict": "CLOT_ACCEPT_1084681099",
+    "stale": "LEAK_1084681099",
+    "second": "ID_MISMATCH_1084681099"
+  },
+  "transactions": [
+    {
+      "label": "wallet A creates independent namespace",
+      "method": "create_namespace",
+      "expected": "SUCCESS",
+      "hash": "0x5f06fb38ca5addfd64e41ce84c1a19071d48af0353d7be3858b7306f8eef7537",
+      "status": "FINALIZED",
+      "execution": "SUCCESS"
+    },
+    {
+      "label": "wallet A enables itself as curator",
+      "method": "set_curator",
+      "expected": "SUCCESS",
+      "hash": "0x04ab81260b9a95fdee40f75ba54fe292c7ff8c0296a701d3338b87a955a9ce64",
+      "status": "FINALIZED",
+      "execution": "SUCCESS"
+    },
+    {
+      "label": "wallet A enables wallet B as recorder",
+      "method": "set_recorder",
+      "expected": "SUCCESS",
+      "hash": "0xffc48a1ca5cebdda666baa27db73d609ed4436a8d11ed272b2b6c615a10c0316",
+      "status": "FINALIZED",
+      "execution": "SUCCESS"
+    },
+    {
+      "label": "curator proposes base code",
+      "method": "propose_code",
+      "expected": "SUCCESS",
+      "hash": "0xb3133701dee033b027a40752ef1c31e53e0c9967bacf06326d2e92f7ef8bc654",
+      "status": "FINALIZED",
+      "execution": "SUCCESS"
+    },
+    {
+      "label": "assess base as distinct",
+      "method": "assess_proposal",
+      "expected": "SUCCESS",
+      "hash": "0xe512129eec8ace0eaff0565f756d14b85a9afed46d46138993738fde4214dfb5",
+      "status": "FINALIZED",
+      "execution": "SUCCESS"
+    },
+    {
+      "label": "recorder creates exact rejection record",
+      "method": "record_rejection",
+      "expected": "SUCCESS",
+      "hash": "0xe8cd7949da17d60f162525fbd80235f87914da6dfccc7522694f19542eccb04d",
+      "status": "FINALIZED",
+      "execution": "SUCCESS"
+    },
+    {
+      "label": "reject record-id replay",
+      "method": "record_rejection",
+      "expected": "ERROR",
+      "hash": "0xd6454b91062ea0a260655ac26bfafec541a8a885f71cef04321ffa4e8bd3cb20",
+      "status": "FINALIZED",
+      "execution": "ERROR"
+    },
+    {
+      "label": "reject specimen replay under new record id",
+      "method": "record_rejection",
+      "expected": "ERROR",
+      "hash": "0xac0ae1f4c8d9083839b55ee544b16eeac31404f897dd497251f62f53b4e3cff0",
+      "status": "FINALIZED",
+      "execution": "ERROR"
+    },
+    {
+      "label": "reject curator acting as recorder",
+      "method": "record_rejection",
+      "expected": "ERROR",
+      "hash": "0xf6b209033d7403593af4f529a6a60b9d365bb25e7be2ff3b9a1207f8421726e7",
+      "status": "FINALIZED",
+      "execution": "ERROR"
+    },
+    {
+      "label": "reject recorder acting as curator",
+      "method": "propose_code",
+      "expected": "ERROR",
+      "hash": "0xac5cb7ea93261fe6c6064389431641b2ef9ea13ae147a045c1bc02f36ef5519a",
+      "status": "FINALIZED",
+      "execution": "ERROR"
+    },
+    {
+      "label": "reject record-id replay",
+      "method": "record_rejection",
+      "expected": "ERROR",
+      "hash": "0x04e81acf75dc1f4f5c1d7f1a03ad9301934ab1f27586ff3215a84a2b51f01a2b",
+      "status": "FINALIZED",
+      "execution": "ERROR"
+    },
+    {
+      "label": "reject specimen replay under new record id",
+      "method": "record_rejection",
+      "expected": "ERROR",
+      "hash": "0x960a4f59e5f01d638646e483c0869a7c6c239443bd935f638b793daf80ac97a3",
+      "status": "FINALIZED",
+      "execution": "ERROR"
+    },
+    {
+      "label": "reject curator acting as recorder",
+      "method": "record_rejection",
+      "expected": "ERROR",
+      "hash": "0x668d2e607937e06b89445440acdcad5226f7f661713061c83b8efae47c1780d9",
+      "status": "FINALIZED",
+      "execution": "ERROR"
+    },
+    {
+      "label": "reject recorder acting as curator",
+      "method": "propose_code",
+      "expected": "ERROR",
+      "hash": "0xa3fcf1ba931d7aa279d22fbc3885ac5ff5c20aeeb5d8b2de220740cc5abd1c1e",
+      "status": "FINALIZED",
+      "execution": "ERROR"
+    },
+    {
+      "label": "assess duplicate",
+      "method": "assess_proposal",
+      "expected": "SUCCESS",
+      "hash": "0x52ddc970449f3c1846a3532de9cc37ff31c55d723f3bad8a528207cd900633d0",
+      "status": "FINALIZED",
+      "execution": "SUCCESS"
+    },
+    {
+      "label": "curator proposes overlap",
+      "method": "propose_code",
+      "expected": "SUCCESS",
+      "hash": "0x7a9a0c3cc210fb9a1c3d3b0f5f86d331d7b2b06eeaf12dcbd5b45fe12d020161",
+      "status": "FINALIZED",
+      "execution": "SUCCESS"
+    },
+    {
+      "label": "assess overlap",
+      "method": "assess_proposal",
+      "expected": "SUCCESS",
+      "hash": "0x2b6526baef7c7a906219b2ae6d887e45e255592c9c1a897cbb54f8c6d35f873f",
+      "status": "FINALIZED",
+      "execution": "SUCCESS"
+    },
+    {
+      "label": "curator proposes conflict",
+      "method": "propose_code",
+      "expected": "SUCCESS",
+      "hash": "0x3bfa5f339997a92cfaca19d42a84c5e939315958b5373d521474923ff1a56e08",
+      "status": "FINALIZED",
+      "execution": "SUCCESS"
+    },
+    {
+      "label": "assess conflict",
+      "method": "assess_proposal",
+      "expected": "SUCCESS",
+      "hash": "0xeadc84f7935038b985a280227f934f241e7aaf6070fd8ee45b7ea721ac0e1c0f",
+      "status": "FINALIZED",
+      "execution": "SUCCESS"
+    },
+    {
+      "label": "curator seals proposal that will become stale",
+      "method": "propose_code",
+      "expected": "SUCCESS",
+      "hash": "0x048ad2d80e42cb06c4587628bc2259de29b791d06537e04a39e14eb649825bad",
+      "status": "FINALIZED",
+      "execution": "SUCCESS"
+    },
+    {
+      "label": "curator proposes second distinct code",
+      "method": "propose_code",
+      "expected": "SUCCESS",
+      "hash": "0xe50a84953c45a182a5ade9503bc85a910c15473878d8b47efc38928c35d27df2",
+      "status": "FINALIZED",
+      "execution": "SUCCESS"
+    },
+    {
+      "label": "assess second distinct code",
+      "method": "assess_proposal",
+      "expected": "SUCCESS",
+      "hash": "0xfc8fb6628c69ad37fcdd61494fe6bb1bbaa19af3b39d0c6bcfc3c923cbad4115",
+      "status": "FINALIZED",
+      "execution": "SUCCESS"
+    },
+    {
+      "label": "reject stale candidate-set assessment",
+      "method": "assess_proposal",
+      "expected": "ERROR",
+      "hash": "0xc34ac74dc55232f3f518a8c913f26d166887bd96398efa4329fcb0c1651a1c6a",
+      "status": "FINALIZED",
+      "execution": "ERROR"
+    },
+    {
+      "label": "namespace authority retires base code",
+      "method": "retire_code",
+      "expected": "SUCCESS",
+      "hash": "0x0e36b4e91d812d6469319d645b88a75e7beade98b3ea7f62fc70765754291093",
+      "status": "FINALIZED",
+      "execution": "SUCCESS"
+    },
+    {
+      "label": "reject record-id replay",
+      "method": "record_rejection",
+      "expected": "ERROR",
+      "hash": "0x5e9662251e2179bf416a714d0686c726201aa6fffeff51fd42a818fb63be3bee",
+      "status": "FINALIZED",
+      "execution": "ERROR"
+    },
+    {
+      "label": "reject specimen replay under new record id",
+      "method": "record_rejection",
+      "expected": "ERROR",
+      "hash": "0x089c489ab3a0b848e91dc4f7cd6b50ae7fdad320d018c9cc607090a01143048a",
+      "status": "FINALIZED",
+      "execution": "ERROR"
+    },
+    {
+      "label": "reject curator acting as recorder",
+      "method": "record_rejection",
+      "expected": "ERROR",
+      "hash": "0xd2e47dbdf5dc3067b270d19a4ac8692eae0bfd5e4d1bd421f10434d1e61a4114",
+      "status": "FINALIZED",
+      "execution": "ERROR"
+    },
+    {
+      "label": "reject recorder acting as curator",
+      "method": "propose_code",
+      "expected": "ERROR",
+      "hash": "0xa75e07c52ceb828d576c55d0e0375b57f6e369745ecb98a36d117c286640c9ad",
+      "status": "FINALIZED",
+      "execution": "ERROR"
+    },
+    {
+      "label": "reject stale candidate-set assessment",
+      "method": "assess_proposal",
+      "expected": "ERROR",
+      "hash": "0x39ad72bfb6703c5f9c3e694d391a95fa3060e138a777e233834d37d91103add5",
+      "status": "FINALIZED",
+      "execution": "ERROR"
+    },
+    {
+      "label": "reject recorder retiring active code",
+      "method": "retire_code",
+      "expected": "ERROR",
+      "hash": "0x510d6cb301a23ba7d94fa1a245a7fb213f51cd69dbc4828949ef80a2a4290406",
+      "status": "FINALIZED",
+      "execution": "ERROR"
+    }
+  ],
+  "assertions": [
+    {
+      "label": "deployed SpecCode V3 identity",
+      "pass": true,
+      "details": {
+        "name": "SpecCode",
+        "schema": "semantic-specimen-code-registry-v3",
+        "version": 3
+      }
+    },
+    {
+      "label": "wallet A creates independent namespace finalized with SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x5f06fb38ca5addfd64e41ce84c1a19071d48af0353d7be3858b7306f8eef7537",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "wallet A enables itself as curator finalized with SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x04ab81260b9a95fdee40f75ba54fe292c7ff8c0296a701d3338b87a955a9ce64",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "wallet A enables wallet B as recorder finalized with SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0xffc48a1ca5cebdda666baa27db73d609ed4436a8d11ed272b2b6c615a10c0316",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "wallet A owns exact namespace without deployer involvement",
+      "pass": true,
+      "details": {
+        "active_count": 0,
+        "authority": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+        "code_slot_count": 0,
+        "enabled": true,
+        "exists": true,
+        "namespace_id": "sample-intake-1084681099",
+        "proposal_count": 0,
+        "record_count": 0,
+        "revision": 1
+      }
+    },
+    {
+      "label": "curator proposes base code finalized with SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0xb3133701dee033b027a40752ef1c31e53e0c9967bacf06326d2e92f7ef8bc654",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "assess base as distinct finalized with SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0xe512129eec8ace0eaff0565f756d14b85a9afed46d46138993738fde4214dfb5",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "base code activated by consensus",
+      "pass": true,
+      "details": {
+        "candidate_digest": "e57fa7937c4b36b08d46a3b4bdc99cdff0e6b4efefab01406dde6e52a8169b24",
+        "code": "CLOT_1084681099",
+        "curator": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+        "definition": "An anticoagulated whole-blood specimen contains a visible fibrin clot and is unsuitable for hematology analysis.",
+        "definition_digest": "670be57fb7a15eb58189b24d5627b2c75f4cde112ef03e66beba6d2cd1f6b8f1",
+        "exists": true,
+        "finding": "No active codes exist; the proposal defines a new classification.",
+        "finding_digest": "e9db9d94e299410e5554a55f1ab93d28b4937eda3357f6ac6cfc77554546f4aa",
+        "matched_code": "",
+        "namespace_id": "sample-intake-1084681099",
+        "proposal_id": "base-1084681099",
+        "registry_revision": 1,
+        "revision": 1,
+        "status": "ACTIVE",
+        "verdict": "DISTINCT"
+      }
+    },
+    {
+      "label": "recorder creates exact rejection record finalized with SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0xe8cd7949da17d60f162525fbd80235f87914da6dfccc7522694f19542eccb04d",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "record exact readback",
+      "pass": true,
+      "details": {
+        "code": "CLOT_1084681099",
+        "code_revision": 1,
+        "definition_digest": "670be57fb7a15eb58189b24d5627b2c75f4cde112ef03e66beba6d2cd1f6b8f1",
+        "exists": true,
+        "namespace_id": "sample-intake-1084681099",
+        "record_id": "record-1084681099",
+        "recorder": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+        "specimen_ref": "specimen-1084681099"
+      }
+    },
+    {
+      "label": "reject record-id replay finalized with ERROR",
+      "pass": true,
+      "details": {
+        "hash": "0xd6454b91062ea0a260655ac26bfafec541a8a885f71cef04321ffa4e8bd3cb20",
+        "status": "FINALIZED",
+        "execution": "ERROR"
+      }
+    },
+    {
+      "label": "reject specimen replay under new record id finalized with ERROR",
+      "pass": true,
+      "details": {
+        "hash": "0xac0ae1f4c8d9083839b55ee544b16eeac31404f897dd497251f62f53b4e3cff0",
+        "status": "FINALIZED",
+        "execution": "ERROR"
+      }
+    },
+    {
+      "label": "reject curator acting as recorder finalized with ERROR",
+      "pass": true,
+      "details": {
+        "hash": "0xf6b209033d7403593af4f529a6a60b9d365bb25e7be2ff3b9a1207f8421726e7",
+        "status": "FINALIZED",
+        "execution": "ERROR"
+      }
+    },
+    {
+      "label": "reject recorder acting as curator finalized with ERROR",
+      "pass": true,
+      "details": {
+        "hash": "0xac5cb7ea93261fe6c6064389431641b2ef9ea13ae147a045c1bc02f36ef5519a",
+        "status": "FINALIZED",
+        "execution": "ERROR"
+      }
+    },
+    {
+      "label": "deployed SpecCode V3 identity",
+      "pass": true,
+      "details": {
+        "name": "SpecCode",
+        "schema": "semantic-specimen-code-registry-v3",
+        "version": 3
+      }
+    },
+    {
+      "label": "wallet A owns exact namespace without deployer involvement",
+      "pass": true,
+      "details": {
+        "active_count": 1,
+        "authority": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+        "code_slot_count": 1,
+        "enabled": true,
+        "exists": true,
+        "namespace_id": "sample-intake-1084681099",
+        "proposal_count": 2,
+        "record_count": 1,
+        "revision": 2
+      }
+    },
+    {
+      "label": "base code activated by consensus",
+      "pass": true,
+      "details": {
+        "candidate_digest": "e57fa7937c4b36b08d46a3b4bdc99cdff0e6b4efefab01406dde6e52a8169b24",
+        "code": "CLOT_1084681099",
+        "curator": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+        "definition": "An anticoagulated whole-blood specimen contains a visible fibrin clot and is unsuitable for hematology analysis.",
+        "definition_digest": "670be57fb7a15eb58189b24d5627b2c75f4cde112ef03e66beba6d2cd1f6b8f1",
+        "exists": true,
+        "finding": "No active codes exist; the proposal defines a new classification.",
+        "finding_digest": "e9db9d94e299410e5554a55f1ab93d28b4937eda3357f6ac6cfc77554546f4aa",
+        "matched_code": "",
+        "namespace_id": "sample-intake-1084681099",
+        "proposal_id": "base-1084681099",
+        "registry_revision": 1,
+        "revision": 1,
+        "status": "ACTIVE",
+        "verdict": "DISTINCT"
+      }
+    },
+    {
+      "label": "record exact readback",
+      "pass": true,
+      "details": {
+        "code": "CLOT_1084681099",
+        "code_revision": 1,
+        "definition_digest": "670be57fb7a15eb58189b24d5627b2c75f4cde112ef03e66beba6d2cd1f6b8f1",
+        "exists": true,
+        "namespace_id": "sample-intake-1084681099",
+        "record_id": "record-1084681099",
+        "recorder": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+        "specimen_ref": "specimen-1084681099"
+      }
+    },
+    {
+      "label": "reject record-id replay finalized with ERROR",
+      "pass": true,
+      "details": {
+        "hash": "0x04e81acf75dc1f4f5c1d7f1a03ad9301934ab1f27586ff3215a84a2b51f01a2b",
+        "status": "FINALIZED",
+        "execution": "ERROR"
+      }
+    },
+    {
+      "label": "reject specimen replay under new record id finalized with ERROR",
+      "pass": true,
+      "details": {
+        "hash": "0x960a4f59e5f01d638646e483c0869a7c6c239443bd935f638b793daf80ac97a3",
+        "status": "FINALIZED",
+        "execution": "ERROR"
+      }
+    },
+    {
+      "label": "reject curator acting as recorder finalized with ERROR",
+      "pass": true,
+      "details": {
+        "hash": "0x668d2e607937e06b89445440acdcad5226f7f661713061c83b8efae47c1780d9",
+        "status": "FINALIZED",
+        "execution": "ERROR"
+      }
+    },
+    {
+      "label": "reject recorder acting as curator finalized with ERROR",
+      "pass": true,
+      "details": {
+        "hash": "0xa3fcf1ba931d7aa279d22fbc3885ac5ff5c20aeeb5d8b2de220740cc5abd1c1e",
+        "status": "FINALIZED",
+        "execution": "ERROR"
+      }
+    },
+    {
+      "label": "assess duplicate finalized with SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x52ddc970449f3c1846a3532de9cc37ff31c55d723f3bad8a528207cd900633d0",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "duplicate quarantined",
+      "pass": true,
+      "details": {
+        "candidate_digest": "8a9a5243055681f281933c8f68d1a50fb777a2b0cd50b492a4cd9cbf0015a850",
+        "code": "FIBRIN_1084681099",
+        "curator": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+        "definition": "Visible clot material is present in anticoagulated whole blood, making the specimen unacceptable for hematology testing.",
+        "definition_digest": "d6867394a3b7456defc0f9034ba3857fff0b0a75799c3685158f66b612166bdf",
+        "exists": true,
+        "finding": "The proposed definition describes the same condition, specimen type, and operational outcome as the existing code for visible fibrin clots in anticoagulated blood.",
+        "finding_digest": "44004abe3fc33a2ab131154c400777ffa9f95a0450e6ce6afed8072a5b4b09f9",
+        "matched_code": "CLOT_1084681099",
+        "namespace_id": "sample-intake-1084681099",
+        "proposal_id": "duplicate-1084681099",
+        "registry_revision": 2,
+        "revision": 1,
+        "status": "QUARANTINED",
+        "verdict": "DUPLICATE"
+      }
+    },
+    {
+      "label": "curator proposes overlap finalized with SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x7a9a0c3cc210fb9a1c3d3b0f5f86d331d7b2b06eeaf12dcbd5b45fe12d020161",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "assess overlap finalized with SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x2b6526baef7c7a906219b2ae6d887e45e255592c9c1a897cbb54f8c6d35f873f",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "overlap quarantined",
+      "pass": true,
+      "details": {
+        "candidate_digest": "8a9a5243055681f281933c8f68d1a50fb777a2b0cd50b492a4cd9cbf0015a850",
+        "code": "BLOOD_DAMAGE_1084681099",
+        "curator": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+        "definition": "A blood specimen contains clot, fibrin, or related material that may interfere with laboratory testing and requires rejection.",
+        "definition_digest": "cb54a94309811f172d622bf26246b013b70a865a845630a49f4e2e95b4872665",
+        "exists": true,
+        "finding": "The proposal broadly covers clot, fibrin, or related material causing rejection in blood specimens, which overlaps with the active code’s narrower scope of visible fibrin clot in anticoagulated whole blood for hematology; some specimens could fit both, but the scopes are not fully identical.",
+        "finding_digest": "b73c693fe7e57ef56aa51790cdac54a70e1145690b8e1a7fc0707362af24e4aa",
+        "matched_code": "CLOT_1084681099",
+        "namespace_id": "sample-intake-1084681099",
+        "proposal_id": "overlap-1084681099",
+        "registry_revision": 2,
+        "revision": 1,
+        "status": "QUARANTINED",
+        "verdict": "OVERLAPPING"
+      }
+    },
+    {
+      "label": "curator proposes conflict finalized with SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x3bfa5f339997a92cfaca19d42a84c5e939315958b5373d521474923ff1a56e08",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "assess conflict finalized with SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0xeadc84f7935038b985a280227f934f241e7aaf6070fd8ee45b7ea721ac0e1c0f",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "conflict quarantined",
+      "pass": true,
+      "details": {
+        "candidate_digest": "8a9a5243055681f281933c8f68d1a50fb777a2b0cd50b492a4cd9cbf0015a850",
+        "code": "CLOT_ACCEPT_1084681099",
+        "curator": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+        "definition": "An anticoagulated whole-blood specimen with a visible fibrin clot must be accepted as suitable for hematology analysis.",
+        "definition_digest": "384e71729082ec4e1ef13f2a006ed9156dc5ee734692e71a15c58fbe454c1445",
+        "exists": true,
+        "finding": "Both codes refer to an anticoagulated whole-blood specimen with a visible fibrin clot, but the active code declares it unsuitable for hematology analysis while the proposed code mandates it be accepted as suitable, creating incompatible classification meanings.",
+        "finding_digest": "50600b20c168c91b435d1469b9053566e2c1f9a4171260ac2ac7bb427e7affb0",
+        "matched_code": "CLOT_1084681099",
+        "namespace_id": "sample-intake-1084681099",
+        "proposal_id": "conflict-1084681099",
+        "registry_revision": 2,
+        "revision": 1,
+        "status": "QUARANTINED",
+        "verdict": "CONFLICTING"
+      }
+    },
+    {
+      "label": "curator seals proposal that will become stale finalized with SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x048ad2d80e42cb06c4587628bc2259de29b791d06537e04a39e14eb649825bad",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "curator proposes second distinct code finalized with SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0xe50a84953c45a182a5ade9503bc85a910c15473878d8b47efc38928c35d27df2",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "assess second distinct code finalized with SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0xfc8fb6628c69ad37fcdd61494fe6bb1bbaa19af3b39d0c6bcfc3c923cbad4115",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "second distinct code activated",
+      "pass": true,
+      "details": {
+        "candidate_digest": "8a9a5243055681f281933c8f68d1a50fb777a2b0cd50b492a4cd9cbf0015a850",
+        "code": "ID_MISMATCH_1084681099",
+        "curator": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+        "definition": "The identity printed on the specimen container does not match the identity on the accompanying laboratory request.",
+        "definition_digest": "ce89c68b25c83416b7ef8afc79c61d194dca61b6744a9fb4b33d7d7f9e43c276",
+        "exists": true,
+        "finding": "The proposed code addresses patient/specimen identification mismatch, while the only active code addresses clotting in an anticoagulated whole-blood specimen; these are materially separate rejection scopes.",
+        "finding_digest": "63789b958862973ca7ff7bf42594f0e8c1f50cf76dac216dc185f83600c4e701",
+        "matched_code": "",
+        "namespace_id": "sample-intake-1084681099",
+        "proposal_id": "second-1084681099",
+        "registry_revision": 2,
+        "revision": 1,
+        "status": "ACTIVE",
+        "verdict": "DISTINCT"
+      }
+    },
+    {
+      "label": "reject stale candidate-set assessment finalized with ERROR",
+      "pass": true,
+      "details": {
+        "hash": "0xc34ac74dc55232f3f518a8c913f26d166887bd96398efa4329fcb0c1651a1c6a",
+        "status": "FINALIZED",
+        "execution": "ERROR"
+      }
+    },
+    {
+      "label": "stale rejection preserved complete proposal state",
+      "pass": true,
+      "details": {
+        "before": {
+          "candidate_digest": "8a9a5243055681f281933c8f68d1a50fb777a2b0cd50b492a4cd9cbf0015a850",
+          "code": "LEAK_1084681099",
+          "curator": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "definition": "The primary specimen container is visibly leaking and cannot be safely processed by laboratory staff.",
+          "definition_digest": "c187c481c1805fd34ba2db86e368f97bd201be1d4dc5fc458234f57b63400d97",
+          "exists": true,
+          "finding": "",
+          "finding_digest": "",
+          "matched_code": "",
+          "namespace_id": "sample-intake-1084681099",
+          "proposal_id": "stale-1084681099",
+          "registry_revision": 2,
+          "revision": 1,
+          "status": "PENDING_ASSESSMENT",
+          "verdict": ""
+        },
+        "after": {
+          "candidate_digest": "8a9a5243055681f281933c8f68d1a50fb777a2b0cd50b492a4cd9cbf0015a850",
+          "code": "LEAK_1084681099",
+          "curator": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "definition": "The primary specimen container is visibly leaking and cannot be safely processed by laboratory staff.",
+          "definition_digest": "c187c481c1805fd34ba2db86e368f97bd201be1d4dc5fc458234f57b63400d97",
+          "exists": true,
+          "finding": "",
+          "finding_digest": "",
+          "matched_code": "",
+          "namespace_id": "sample-intake-1084681099",
+          "proposal_id": "stale-1084681099",
+          "registry_revision": 2,
+          "revision": 1,
+          "status": "PENDING_ASSESSMENT",
+          "verdict": ""
+        }
+      }
+    },
+    {
+      "label": "namespace authority retires base code finalized with SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x0e36b4e91d812d6469319d645b88a75e7beade98b3ea7f62fc70765754291093",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "deployed SpecCode V3 identity",
+      "pass": true,
+      "details": {
+        "name": "SpecCode",
+        "schema": "semantic-specimen-code-registry-v3",
+        "version": 3
+      }
+    },
+    {
+      "label": "wallet A owns exact namespace without deployer involvement",
+      "pass": true,
+      "details": {
+        "active_count": 1,
+        "authority": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+        "code_slot_count": 2,
+        "enabled": true,
+        "exists": true,
+        "namespace_id": "sample-intake-1084681099",
+        "proposal_count": 6,
+        "record_count": 1,
+        "revision": 4
+      }
+    },
+    {
+      "label": "base code activated by consensus",
+      "pass": true,
+      "details": {
+        "candidate_digest": "e57fa7937c4b36b08d46a3b4bdc99cdff0e6b4efefab01406dde6e52a8169b24",
+        "code": "CLOT_1084681099",
+        "curator": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+        "definition": "An anticoagulated whole-blood specimen contains a visible fibrin clot and is unsuitable for hematology analysis.",
+        "definition_digest": "670be57fb7a15eb58189b24d5627b2c75f4cde112ef03e66beba6d2cd1f6b8f1",
+        "exists": true,
+        "finding": "No active codes exist; the proposal defines a new classification.",
+        "finding_digest": "e9db9d94e299410e5554a55f1ab93d28b4937eda3357f6ac6cfc77554546f4aa",
+        "matched_code": "",
+        "namespace_id": "sample-intake-1084681099",
+        "proposal_id": "base-1084681099",
+        "registry_revision": 1,
+        "revision": 1,
+        "status": "ACTIVE",
+        "verdict": "DISTINCT"
+      }
+    },
+    {
+      "label": "record exact readback",
+      "pass": true,
+      "details": {
+        "code": "CLOT_1084681099",
+        "code_revision": 1,
+        "definition_digest": "670be57fb7a15eb58189b24d5627b2c75f4cde112ef03e66beba6d2cd1f6b8f1",
+        "exists": true,
+        "namespace_id": "sample-intake-1084681099",
+        "record_id": "record-1084681099",
+        "recorder": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+        "specimen_ref": "specimen-1084681099"
+      }
+    },
+    {
+      "label": "reject record-id replay finalized with ERROR",
+      "pass": true,
+      "details": {
+        "hash": "0x5e9662251e2179bf416a714d0686c726201aa6fffeff51fd42a818fb63be3bee",
+        "status": "FINALIZED",
+        "execution": "ERROR"
+      }
+    },
+    {
+      "label": "reject specimen replay under new record id finalized with ERROR",
+      "pass": true,
+      "details": {
+        "hash": "0x089c489ab3a0b848e91dc4f7cd6b50ae7fdad320d018c9cc607090a01143048a",
+        "status": "FINALIZED",
+        "execution": "ERROR"
+      }
+    },
+    {
+      "label": "reject curator acting as recorder finalized with ERROR",
+      "pass": true,
+      "details": {
+        "hash": "0xd2e47dbdf5dc3067b270d19a4ac8692eae0bfd5e4d1bd421f10434d1e61a4114",
+        "status": "FINALIZED",
+        "execution": "ERROR"
+      }
+    },
+    {
+      "label": "reject recorder acting as curator finalized with ERROR",
+      "pass": true,
+      "details": {
+        "hash": "0xa75e07c52ceb828d576c55d0e0375b57f6e369745ecb98a36d117c286640c9ad",
+        "status": "FINALIZED",
+        "execution": "ERROR"
+      }
+    },
+    {
+      "label": "duplicate quarantined",
+      "pass": true,
+      "details": {
+        "candidate_digest": "8a9a5243055681f281933c8f68d1a50fb777a2b0cd50b492a4cd9cbf0015a850",
+        "code": "FIBRIN_1084681099",
+        "curator": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+        "definition": "Visible clot material is present in anticoagulated whole blood, making the specimen unacceptable for hematology testing.",
+        "definition_digest": "d6867394a3b7456defc0f9034ba3857fff0b0a75799c3685158f66b612166bdf",
+        "exists": true,
+        "finding": "The proposed definition describes the same condition, specimen type, and operational outcome as the existing code for visible fibrin clots in anticoagulated blood.",
+        "finding_digest": "44004abe3fc33a2ab131154c400777ffa9f95a0450e6ce6afed8072a5b4b09f9",
+        "matched_code": "CLOT_1084681099",
+        "namespace_id": "sample-intake-1084681099",
+        "proposal_id": "duplicate-1084681099",
+        "registry_revision": 2,
+        "revision": 1,
+        "status": "QUARANTINED",
+        "verdict": "DUPLICATE"
+      }
+    },
+    {
+      "label": "overlap quarantined",
+      "pass": true,
+      "details": {
+        "candidate_digest": "8a9a5243055681f281933c8f68d1a50fb777a2b0cd50b492a4cd9cbf0015a850",
+        "code": "BLOOD_DAMAGE_1084681099",
+        "curator": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+        "definition": "A blood specimen contains clot, fibrin, or related material that may interfere with laboratory testing and requires rejection.",
+        "definition_digest": "cb54a94309811f172d622bf26246b013b70a865a845630a49f4e2e95b4872665",
+        "exists": true,
+        "finding": "The proposal broadly covers clot, fibrin, or related material causing rejection in blood specimens, which overlaps with the active code’s narrower scope of visible fibrin clot in anticoagulated whole blood for hematology; some specimens could fit both, but the scopes are not fully identical.",
+        "finding_digest": "b73c693fe7e57ef56aa51790cdac54a70e1145690b8e1a7fc0707362af24e4aa",
+        "matched_code": "CLOT_1084681099",
+        "namespace_id": "sample-intake-1084681099",
+        "proposal_id": "overlap-1084681099",
+        "registry_revision": 2,
+        "revision": 1,
+        "status": "QUARANTINED",
+        "verdict": "OVERLAPPING"
+      }
+    },
+    {
+      "label": "conflict quarantined",
+      "pass": true,
+      "details": {
+        "candidate_digest": "8a9a5243055681f281933c8f68d1a50fb777a2b0cd50b492a4cd9cbf0015a850",
+        "code": "CLOT_ACCEPT_1084681099",
+        "curator": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+        "definition": "An anticoagulated whole-blood specimen with a visible fibrin clot must be accepted as suitable for hematology analysis.",
+        "definition_digest": "384e71729082ec4e1ef13f2a006ed9156dc5ee734692e71a15c58fbe454c1445",
+        "exists": true,
+        "finding": "Both codes refer to an anticoagulated whole-blood specimen with a visible fibrin clot, but the active code declares it unsuitable for hematology analysis while the proposed code mandates it be accepted as suitable, creating incompatible classification meanings.",
+        "finding_digest": "50600b20c168c91b435d1469b9053566e2c1f9a4171260ac2ac7bb427e7affb0",
+        "matched_code": "CLOT_1084681099",
+        "namespace_id": "sample-intake-1084681099",
+        "proposal_id": "conflict-1084681099",
+        "registry_revision": 2,
+        "revision": 1,
+        "status": "QUARANTINED",
+        "verdict": "CONFLICTING"
+      }
+    },
+    {
+      "label": "second distinct code activated",
+      "pass": true,
+      "details": {
+        "candidate_digest": "8a9a5243055681f281933c8f68d1a50fb777a2b0cd50b492a4cd9cbf0015a850",
+        "code": "ID_MISMATCH_1084681099",
+        "curator": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+        "definition": "The identity printed on the specimen container does not match the identity on the accompanying laboratory request.",
+        "definition_digest": "ce89c68b25c83416b7ef8afc79c61d194dca61b6744a9fb4b33d7d7f9e43c276",
+        "exists": true,
+        "finding": "The proposed code addresses patient/specimen identification mismatch, while the only active code addresses clotting in an anticoagulated whole-blood specimen; these are materially separate rejection scopes.",
+        "finding_digest": "63789b958862973ca7ff7bf42594f0e8c1f50cf76dac216dc185f83600c4e701",
+        "matched_code": "",
+        "namespace_id": "sample-intake-1084681099",
+        "proposal_id": "second-1084681099",
+        "registry_revision": 2,
+        "revision": 1,
+        "status": "ACTIVE",
+        "verdict": "DISTINCT"
+      }
+    },
+    {
+      "label": "reject stale candidate-set assessment finalized with ERROR",
+      "pass": true,
+      "details": {
+        "hash": "0x39ad72bfb6703c5f9c3e694d391a95fa3060e138a777e233834d37d91103add5",
+        "status": "FINALIZED",
+        "execution": "ERROR"
+      }
+    },
+    {
+      "label": "stale rejection preserved complete proposal state",
+      "pass": true,
+      "details": {
+        "before": {
+          "candidate_digest": "8a9a5243055681f281933c8f68d1a50fb777a2b0cd50b492a4cd9cbf0015a850",
+          "code": "LEAK_1084681099",
+          "curator": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "definition": "The primary specimen container is visibly leaking and cannot be safely processed by laboratory staff.",
+          "definition_digest": "c187c481c1805fd34ba2db86e368f97bd201be1d4dc5fc458234f57b63400d97",
+          "exists": true,
+          "finding": "",
+          "finding_digest": "",
+          "matched_code": "",
+          "namespace_id": "sample-intake-1084681099",
+          "proposal_id": "stale-1084681099",
+          "registry_revision": 2,
+          "revision": 1,
+          "status": "PENDING_ASSESSMENT",
+          "verdict": ""
+        },
+        "after": {
+          "candidate_digest": "8a9a5243055681f281933c8f68d1a50fb777a2b0cd50b492a4cd9cbf0015a850",
+          "code": "LEAK_1084681099",
+          "curator": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "definition": "The primary specimen container is visibly leaking and cannot be safely processed by laboratory staff.",
+          "definition_digest": "c187c481c1805fd34ba2db86e368f97bd201be1d4dc5fc458234f57b63400d97",
+          "exists": true,
+          "finding": "",
+          "finding_digest": "",
+          "matched_code": "",
+          "namespace_id": "sample-intake-1084681099",
+          "proposal_id": "stale-1084681099",
+          "registry_revision": 2,
+          "revision": 1,
+          "status": "PENDING_ASSESSMENT",
+          "verdict": ""
+        }
+      }
+    },
+    {
+      "label": "retired code canonical readback",
+      "pass": true,
+      "details": {
+        "activated_at_revision": 2,
+        "active": false,
+        "code": "CLOT_1084681099",
+        "definition": "An anticoagulated whole-blood specimen contains a visible fibrin clot and is unsuitable for hematology analysis.",
+        "definition_digest": "670be57fb7a15eb58189b24d5627b2c75f4cde112ef03e66beba6d2cd1f6b8f1",
+        "exists": true,
+        "namespace_id": "sample-intake-1084681099",
+        "proposal_id": "base-1084681099",
+        "proposal_revision": 1
+      }
+    },
+    {
+      "label": "reject recorder retiring active code finalized with ERROR",
+      "pass": true,
+      "details": {
+        "hash": "0x510d6cb301a23ba7d94fa1a245a7fb213f51cd69dbc4828949ef80a2a4290406",
+        "status": "FINALIZED",
+        "execution": "ERROR"
+      }
+    },
+    {
+      "label": "canonical final counters",
+      "pass": true,
+      "details": {
+        "active_codes": 2,
+        "namespaces": 1,
+        "records": 1
+      }
+    }
+  ],
+  "final": {
+    "version": {
+      "name": "SpecCode",
+      "schema": "semantic-specimen-code-registry-v3",
+      "version": 3
+    },
+    "initial": {
+      "active_count": 1,
+      "authority": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+      "code_slot_count": 2,
+      "enabled": true,
+      "exists": true,
+      "namespace_id": "sample-intake-1084681099",
+      "proposal_count": 6,
+      "record_count": 1,
+      "revision": 4
+    },
+    "base": {
+      "candidate_digest": "e57fa7937c4b36b08d46a3b4bdc99cdff0e6b4efefab01406dde6e52a8169b24",
+      "code": "CLOT_1084681099",
+      "curator": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+      "definition": "An anticoagulated whole-blood specimen contains a visible fibrin clot and is unsuitable for hematology analysis.",
+      "definition_digest": "670be57fb7a15eb58189b24d5627b2c75f4cde112ef03e66beba6d2cd1f6b8f1",
+      "exists": true,
+      "finding": "No active codes exist; the proposal defines a new classification.",
+      "finding_digest": "e9db9d94e299410e5554a55f1ab93d28b4937eda3357f6ac6cfc77554546f4aa",
+      "matched_code": "",
+      "namespace_id": "sample-intake-1084681099",
+      "proposal_id": "base-1084681099",
+      "registry_revision": 1,
+      "revision": 1,
+      "status": "ACTIVE",
+      "verdict": "DISTINCT"
+    },
+    "record": {
+      "code": "CLOT_1084681099",
+      "code_revision": 1,
+      "definition_digest": "670be57fb7a15eb58189b24d5627b2c75f4cde112ef03e66beba6d2cd1f6b8f1",
+      "exists": true,
+      "namespace_id": "sample-intake-1084681099",
+      "record_id": "record-1084681099",
+      "recorder": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+      "specimen_ref": "specimen-1084681099"
+    },
+    "duplicate": {
+      "candidate_digest": "8a9a5243055681f281933c8f68d1a50fb777a2b0cd50b492a4cd9cbf0015a850",
+      "code": "FIBRIN_1084681099",
+      "curator": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+      "definition": "Visible clot material is present in anticoagulated whole blood, making the specimen unacceptable for hematology testing.",
+      "definition_digest": "d6867394a3b7456defc0f9034ba3857fff0b0a75799c3685158f66b612166bdf",
+      "exists": true,
+      "finding": "The proposed definition describes the same condition, specimen type, and operational outcome as the existing code for visible fibrin clots in anticoagulated blood.",
+      "finding_digest": "44004abe3fc33a2ab131154c400777ffa9f95a0450e6ce6afed8072a5b4b09f9",
+      "matched_code": "CLOT_1084681099",
+      "namespace_id": "sample-intake-1084681099",
+      "proposal_id": "duplicate-1084681099",
+      "registry_revision": 2,
+      "revision": 1,
+      "status": "QUARANTINED",
+      "verdict": "DUPLICATE"
+    },
+    "overlap": {
+      "candidate_digest": "8a9a5243055681f281933c8f68d1a50fb777a2b0cd50b492a4cd9cbf0015a850",
+      "code": "BLOOD_DAMAGE_1084681099",
+      "curator": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+      "definition": "A blood specimen contains clot, fibrin, or related material that may interfere with laboratory testing and requires rejection.",
+      "definition_digest": "cb54a94309811f172d622bf26246b013b70a865a845630a49f4e2e95b4872665",
+      "exists": true,
+      "finding": "The proposal broadly covers clot, fibrin, or related material causing rejection in blood specimens, which overlaps with the active code’s narrower scope of visible fibrin clot in anticoagulated whole blood for hematology; some specimens could fit both, but the scopes are not fully identical.",
+      "finding_digest": "b73c693fe7e57ef56aa51790cdac54a70e1145690b8e1a7fc0707362af24e4aa",
+      "matched_code": "CLOT_1084681099",
+      "namespace_id": "sample-intake-1084681099",
+      "proposal_id": "overlap-1084681099",
+      "registry_revision": 2,
+      "revision": 1,
+      "status": "QUARANTINED",
+      "verdict": "OVERLAPPING"
+    },
+    "conflict": {
+      "candidate_digest": "8a9a5243055681f281933c8f68d1a50fb777a2b0cd50b492a4cd9cbf0015a850",
+      "code": "CLOT_ACCEPT_1084681099",
+      "curator": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+      "definition": "An anticoagulated whole-blood specimen with a visible fibrin clot must be accepted as suitable for hematology analysis.",
+      "definition_digest": "384e71729082ec4e1ef13f2a006ed9156dc5ee734692e71a15c58fbe454c1445",
+      "exists": true,
+      "finding": "Both codes refer to an anticoagulated whole-blood specimen with a visible fibrin clot, but the active code declares it unsuitable for hematology analysis while the proposed code mandates it be accepted as suitable, creating incompatible classification meanings.",
+      "finding_digest": "50600b20c168c91b435d1469b9053566e2c1f9a4171260ac2ac7bb427e7affb0",
+      "matched_code": "CLOT_1084681099",
+      "namespace_id": "sample-intake-1084681099",
+      "proposal_id": "conflict-1084681099",
+      "registry_revision": 2,
+      "revision": 1,
+      "status": "QUARANTINED",
+      "verdict": "CONFLICTING"
+    },
+    "second": {
+      "candidate_digest": "8a9a5243055681f281933c8f68d1a50fb777a2b0cd50b492a4cd9cbf0015a850",
+      "code": "ID_MISMATCH_1084681099",
+      "curator": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+      "definition": "The identity printed on the specimen container does not match the identity on the accompanying laboratory request.",
+      "definition_digest": "ce89c68b25c83416b7ef8afc79c61d194dca61b6744a9fb4b33d7d7f9e43c276",
+      "exists": true,
+      "finding": "The proposed code addresses patient/specimen identification mismatch, while the only active code addresses clotting in an anticoagulated whole-blood specimen; these are materially separate rejection scopes.",
+      "finding_digest": "63789b958862973ca7ff7bf42594f0e8c1f50cf76dac216dc185f83600c4e701",
+      "matched_code": "",
+      "namespace_id": "sample-intake-1084681099",
+      "proposal_id": "second-1084681099",
+      "registry_revision": 2,
+      "revision": 1,
+      "status": "ACTIVE",
+      "verdict": "DISTINCT"
+    },
+    "stale": {
+      "candidate_digest": "8a9a5243055681f281933c8f68d1a50fb777a2b0cd50b492a4cd9cbf0015a850",
+      "code": "LEAK_1084681099",
+      "curator": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+      "definition": "The primary specimen container is visibly leaking and cannot be safely processed by laboratory staff.",
+      "definition_digest": "c187c481c1805fd34ba2db86e368f97bd201be1d4dc5fc458234f57b63400d97",
+      "exists": true,
+      "finding": "",
+      "finding_digest": "",
+      "matched_code": "",
+      "namespace_id": "sample-intake-1084681099",
+      "proposal_id": "stale-1084681099",
+      "registry_revision": 2,
+      "revision": 1,
+      "status": "PENDING_ASSESSMENT",
+      "verdict": ""
+    },
+    "retiredBase": {
+      "activated_at_revision": 2,
+      "active": false,
+      "code": "CLOT_1084681099",
+      "definition": "An anticoagulated whole-blood specimen contains a visible fibrin clot and is unsuitable for hematology analysis.",
+      "definition_digest": "670be57fb7a15eb58189b24d5627b2c75f4cde112ef03e66beba6d2cd1f6b8f1",
+      "exists": true,
+      "namespace_id": "sample-intake-1084681099",
+      "proposal_id": "base-1084681099",
+      "proposal_revision": 1
+    },
+    "namespace": {
+      "active_count": 1,
+      "authority": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+      "code_slot_count": 2,
+      "enabled": true,
+      "exists": true,
+      "namespace_id": "sample-intake-1084681099",
+      "proposal_count": 6,
+      "record_count": 1,
+      "revision": 4
+    },
+    "stats": {
+      "active_codes": 2,
+      "namespaces": 1,
+      "records": 1
+    }
+  }
+}
